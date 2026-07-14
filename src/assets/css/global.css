@@ -1,0 +1,67 @@
+/* src/assets/css/global.css */
+@import './variables.css';
+@import './reset.css';
+@import './typography.css';
+
+/* Global Utility Classes */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+.text-accent {
+  color: var(--color-core-azure);
+}
+
+/* --- Final Polish Additions --- */
+
+/* 1. Custom Dark Sci-Fi Scrollbar Blueprint */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-void-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-obsidian);
+  border: 2px solid var(--color-void-black);
+  border-radius: var(--radius-md);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-core-azure);
+}
+
+/* 2. Premium Accent Selection Highlight */
+::selection {
+  background-color: rgba(59, 130, 246, 0.3);
+  color: var(--color-ghost-white);
+}
+
+/* 3. Global Interactive Link Glows */
+a, button {
+  outline-offset: 4px;
+}
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--color-core-azure);
+}
+
+/* 4. Global Animation Entry Utility */
+.fade-in-load {
+  animation: smoothFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes smoothFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

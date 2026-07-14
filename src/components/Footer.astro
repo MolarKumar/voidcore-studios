@@ -1,0 +1,129 @@
+---
+/* src/components/Footer.astro */
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <span class="text-accent">Void</span>Core
+      </a>
+      <p>Forging worlds in the void. Independent game development studio crafting the future of immersive gaming.</p>
+    </div>
+
+    <div class="footer-links">
+      <h3>Explore</h3>
+      <ul>
+        <li><a href="/games">Our Games</a></li>
+        <li><a href="/team">The Team</a></li>
+        <li><a href="/news">Latest News</a></li>
+        <li><a href="/careers">Careers</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-connect">
+      <h3>Connect</h3>
+      <ul>
+        <li><a href="https://discord.gg/5ufDecMPb" target="_blank">Discord (VoidCore Studios)</a></li>
+        <li><a href="https://www.roblox.com/users/6033659348/profile" target="_blank">Roblox (OpCrazyGamer)</a></li>
+        <li><a href="https://www.youtube.com/channel/UC9ics_RF0B0ZfxnsUplab2g" target="_blank">YouTube (VoidCore Studios)</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="container footer-bottom">
+    <p>&copy; 2026 VoidCore Studios. All rights reserved.</p>
+    <div class="legal-links">
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: var(--color-obsidian);
+    padding: 4rem 0 2rem 0;
+    border-top: 1px solid rgba(148, 161, 178, 0.1);
+    margin-top: 4rem; /* Pushes footer to the bottom of the page */
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  .logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+
+  .footer-brand p {
+    font-size: 0.95rem;
+    max-width: 300px;
+  }
+
+  .footer-links h3, .footer-connect h3 {
+    font-size: 1.2rem;
+    color: var(--color-ghost-white);
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-links ul, .footer-connect ul {
+    list-style: none;
+  }
+
+  .footer-links li, .footer-connect li {
+    margin-bottom: 0.8rem;
+  }
+
+  .footer-links a, .footer-connect a {
+    color: var(--color-steel-gray);
+    font-size: 0.95rem;
+    transition: var(--transition-fast);
+  }
+
+  .footer-links a:hover, .footer-connect a:hover {
+    color: var(--color-core-azure);
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(148, 161, 178, 0.1);
+    font-size: 0.85rem;
+    color: var(--color-steel-gray);
+  }
+
+  .legal-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .legal-links a:hover {
+    color: var(--color-ghost-white);
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
+  }
+</style>

@@ -1,0 +1,202 @@
+---
+/* src/pages/games.astro */
+import Layout from '../layouts/Layout.astro';
+import GameCard from '../components/GameCard.astro';
+---
+
+<Layout title="Our Games">
+  
+  <section class="page-header">
+    <div class="container text-center">
+      <h1>The <span class="text-accent">VoidCore</span> Universe</h1>
+      <p class="header-subtitle">Explore our expanding catalog of immersive, atmospheric experiences.</p>
+    </div>
+  </section>
+
+  <section class="container library-section">
+    <div class="games-grid">
+      <GameCard 
+        title="The Hidden One"
+        status="In Development"
+        description="An atmospheric, immersive thriller where every decision ripples through the void. Survive the unknown and face what lurks just beyond the edge of sight."
+        features={['Atmospheric Thriller', 'Story-Rich', 'Multiplayer']}
+      />
+
+      <GameCard 
+        title="Project: Gang Side"
+        status="Concept Phase"
+        description="An upcoming urban warfare experience featuring deep vehicle systems and high-stakes multiplayer missions. Currently in early prototyping."
+        features={['Urban Combat', 'Multiplayer', 'Vehicles']}
+      />
+    </div>
+  </section>
+
+  <section id="gallery" class="gallery-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>The Hidden One <span class="text-accent">Gallery</span></h2>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item" data-src="Placeholder 1">Screenshot 1</div>
+        <div class="gallery-item" data-src="Placeholder 2">Screenshot 2</div>
+        <div class="gallery-item" data-src="Placeholder 3">Screenshot 3</div>
+        <div class="gallery-item" data-src="Placeholder 4">Concept Art 1</div>
+        <div class="gallery-item" data-src="Placeholder 5">Concept Art 2</div>
+        <div class="gallery-item" data-src="Placeholder 6">Environment</div>
+      </div>
+    </div>
+  </section>
+
+  <div id="lightbox" class="lightbox">
+    <span class="close-lightbox">&times;</span>
+    <div class="lightbox-content">
+      <div id="lightbox-img-placeholder" class="lightbox-placeholder"></div>
+    </div>
+  </div>
+
+</Layout>
+
+<style>
+  .page-header {
+    padding: 6rem 0 4rem 0;
+    border-bottom: 1px solid rgba(148, 161, 178, 0.1);
+  }
+
+  .header-subtitle {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .library-section {
+    padding: 4rem 2rem;
+  }
+
+  .games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+
+  /* --- Gallery Section --- */
+  .gallery-section {
+    padding: 4rem 0 6rem 0;
+    background-color: var(--color-obsidian);
+    border-top: 1px solid rgba(148, 161, 178, 0.1);
+  }
+
+  .section-header {
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 0 2rem;
+  }
+
+  .gallery-item {
+    aspect-ratio: 16/9;
+    background-color: var(--color-void-black);
+    border: 1px dashed rgba(148, 161, 178, 0.3);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-steel-gray);
+    cursor: pointer;
+    transition: var(--transition-fast);
+  }
+
+  .gallery-item:hover {
+    border-color: var(--color-core-azure);
+    color: var(--color-ghost-white);
+    transform: scale(1.02);
+  }
+
+  /* --- Lightbox Styles --- */
+  .lightbox {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 2000;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 10, 12, 0.95);
+    backdrop-filter: blur(5px);
+  }
+
+  .lightbox.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox-content {
+    width: 80%;
+    max-width: 1000px;
+    aspect-ratio: 16/9;
+    background-color: var(--color-obsidian);
+    border-radius: var(--radius-md);
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+  }
+
+  .lightbox-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--color-steel-gray);
+  }
+
+  .close-lightbox {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    color: var(--color-ghost-white);
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .close-lightbox:hover {
+    color: var(--color-core-azure);
+  }
+</style>
+
+<script>
+  // Lightbox Interaction Logic
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  const lightbox = document.getElementById('lightbox');
+  const closeBtn = document.querySelector('.close-lightbox');
+  const lightboxPlaceholder = document.getElementById('lightbox-img-placeholder');
+
+  // Open Lightbox on Click
+  galleryItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const srcText = item.getAttribute('data-src');
+      lightboxPlaceholder.textContent = `Displaying: ${srcText}`;
+      lightbox.classList.add('active');
+    });
+  });
+
+  // Close Lightbox
+  closeBtn.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+  });
+
+  // Close when clicking outside the image
+  window.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      lightbox.classList.remove('active');
+    }
+  });
+</script>

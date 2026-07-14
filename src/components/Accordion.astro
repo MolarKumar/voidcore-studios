@@ -1,0 +1,70 @@
+---
+/* src/components/Accordion.astro */
+const { question, answer } = Astro.props;
+---
+
+<details class="faq-accordion">
+  <summary class="faq-question">
+    {question}
+    <span class="faq-icon">+</span>
+  </summary>
+  <div class="faq-answer">
+    <p>{answer}</p>
+  </div>
+</details>
+
+<style>
+  .faq-accordion {
+    background-color: var(--color-obsidian);
+    border: 1px solid rgba(148, 161, 178, 0.1);
+    border-radius: var(--radius-md);
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: var(--transition-fast);
+  }
+
+  .faq-accordion:hover {
+    border-color: rgba(59, 130, 246, 0.3);
+  }
+
+  /* Target the open state to change the icon and border */
+  details[open] {
+    border-color: var(--color-core-azure);
+  }
+
+  details[open] .faq-icon {
+    transform: rotate(45deg);
+    color: var(--color-core-azure);
+  }
+
+  .faq-question {
+    padding: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-ghost-white);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none; /* Hides default triangle */
+  }
+
+  /* Hides default triangle in WebKit browsers */
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-icon {
+    font-size: 1.5rem;
+    color: var(--color-steel-gray);
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  .faq-answer {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    color: var(--color-steel-gray);
+    border-top: 1px solid rgba(148, 161, 178, 0.1);
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+  }
+</style>

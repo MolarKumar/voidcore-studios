@@ -1,0 +1,106 @@
+---
+/* src/components/NewsCard.astro */
+const { title, date, category, excerpt } = Astro.props;
+---
+
+<article class="news-card">
+  <div class="news-media">
+    <div class="media-placeholder">
+      <span class="icon">📰</span>
+    </div>
+  </div>
+  <div class="news-content">
+    <div class="news-meta">
+      <span class="category">{category}</span>
+      <span class="date">{date}</span>
+    </div>
+    <h3>{title}</h3>
+    <p>{excerpt}</p>
+    <a href="#" class="read-more">Read Full Update &rarr;</a>
+  </div>
+</article>
+
+<style>
+  .news-card {
+    background-color: var(--color-obsidian);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(148, 161, 178, 0.1);
+    overflow: hidden;
+    transition: var(--transition-fast);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .news-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(59, 130, 246, 0.3);
+  }
+
+  .news-media {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-color: #1a1a20;
+    border-bottom: 1px solid rgba(148, 161, 178, 0.1);
+  }
+
+  .media-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    opacity: 0.5;
+  }
+
+  .news-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .news-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+  }
+
+  .category {
+    color: var(--color-core-azure);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: rgba(59, 130, 246, 0.1);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .date {
+    color: var(--color-steel-gray);
+  }
+
+  .news-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .news-content p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+
+  .read-more {
+    color: var(--color-ghost-white);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition-fast);
+  }
+
+  .read-more:hover {
+    color: var(--color-core-azure);
+  }
+</style>

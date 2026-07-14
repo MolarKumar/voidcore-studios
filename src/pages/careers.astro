@@ -1,0 +1,152 @@
+---
+/* src/pages/careers.astro */
+import Layout from '../layouts/Layout.astro';
+import JobCard from '../components/JobCard.astro';
+---
+
+<Layout title="Careers">
+  
+  <section class="page-header">
+    <div class="container text-center">
+      <h1>Join the <span class="text-accent">Void</span></h1>
+      <p class="header-subtitle">Help us build the next generation of immersive gaming. We are currently looking for passionate creators to join our remote ranks.</p>
+    </div>
+  </section>
+
+  <!-- Perks Section -->
+  <section class="perks-section">
+    <div class="container">
+      <div class="perks-grid">
+        <div class="perk">
+          <span class="perk-icon">🌍</span>
+          <h3>Remote First</h3>
+          <p>Work from wherever you are most creative. We are a global, decentralized team.</p>
+        </div>
+        <div class="perk">
+          <span class="perk-icon">💡</span>
+          <h3>Creative Freedom</h3>
+          <p>No corporate red tape. Your ideas have a direct impact on the final game.</p>
+        </div>
+        <div class="perk">
+          <span class="perk-icon">🤝</span>
+          <h3>Salary + Bonus</h3>
+          <p>Enjoy a stable base salary with the upside of performance bonuses. As the game succeeds, we make sure everyone who helped build it shares in the financial achievements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open Positions Section -->
+  <section class="jobs-section container">
+    <div class="section-header">
+      <h2>Open Positions</h2>
+      <div class="header-line"></div>
+    </div>
+
+    <div class="jobs-list">
+      
+      <JobCard 
+        title="Lead Artist" 
+        department="Art" 
+        type="Remote / Contract" 
+        description="We are looking for a talented 3D artist specializing in dark, atmospheric environments to help shape the world of The Hidden One. You will create high-quality props, scenery, and visual elements that bring the game’s eerie, immersive style to life."
+      />
+
+      <JobCard 
+        title="Audio Director" 
+        department="Audio" 
+        type="Remote / Contract" 
+        description="We are seeking an experienced audio specialist to design creepy ambient sounds, intense effects, and immersive music that enhance the suspense and atmosphere of The Hidden One. You will help define the game’s emotional identity through sound."
+      />
+
+            <JobCard 
+        title="Lead Level Designer" 
+        department="Design" 
+        type="Remote / Contract" 
+        description="We are looking for a creative level designer to build engaging, suspenseful maps and gameplay spaces for The Hidden One. You will design layouts, pacing, and environmental flow to make every match feel tense, balanced, and memorable."
+      />
+
+            <JobCard 
+        title="Lead Programmer" 
+        department="Engineering" 
+        type="Remote / Contract" 
+        description="We are seeking an experienced programmer to refine core mechanics, AI behavior, and player movement systems in The Hidden One. You will help optimize performance, improve gameplay, and make sure the game runs smoothly for every player."
+      />
+
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .page-header {
+    padding: 6rem 0 4rem 0;
+  }
+
+  .header-subtitle {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* --- Perks Section --- */
+  .perks-section {
+    background-color: var(--color-obsidian);
+    padding: 4rem 0;
+    border-top: 1px solid rgba(148, 161, 178, 0.1);
+    border-bottom: 1px solid rgba(148, 161, 178, 0.1);
+  }
+
+  .perks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .perk-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .perk h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .perk p {
+    font-size: 0.95rem;
+  }
+
+  /* --- Jobs Section --- */
+  .jobs-section {
+    padding: 6rem 2rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .section-header h2 {
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  .header-line {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, rgba(148, 161, 178, 0.2) 0%, transparent 100%);
+  }
+
+  .jobs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+</style>

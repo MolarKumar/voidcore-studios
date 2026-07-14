@@ -1,0 +1,25 @@
+/* src/assets/css/variables.css */
+:root {
+  /* Color Palette */
+  --color-void-black: #0A0A0C;
+  --color-obsidian: #16161A;
+  --color-ghost-white: #F8F9FA;
+  --color-steel-gray: #94A1B2;
+  --color-core-azure: #3B82F6;
+
+  /* Typography Defaults */
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Spacing & Layout */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+  --max-width: 1200px;
+  
+  /* Borders & Shadows */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --transition-fast: 0.2s ease-in-out;
+}

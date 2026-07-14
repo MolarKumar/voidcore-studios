@@ -1,0 +1,306 @@
+---
+/* src/pages/index.astro */
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Home">
+  
+  <section class="hero">
+    <div class="hero-background"></div>
+    <div class="container hero-content">
+      <span class="badge">Welcome to the Core</span>
+      <h1 class="hero-title">Forging Worlds <br/> <span class="text-accent">in the Void.</span></h1>
+      <p class="hero-subtitle">
+        We are an independent game development studio crafting immersive, dark futuristic experiences. We build the worlds you escape to.
+      </p>
+      <div class="hero-actions">
+        <a href="/games" class="btn-primary btn-large">Explore Our Games</a>
+        <a href="#featured" class="btn-secondary btn-large">Latest Release</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="featured" class="featured-section container">
+    <div class="section-header">
+      <h2>Featured Title</h2>
+      <div class="header-line"></div>
+    </div>
+
+    <div class="featured-grid">
+      <div class="featured-media">
+        <div class="media-placeholder">
+          <span class="play-icon">▶</span>
+          <p>The Hidden One - Official Trailer</p>
+        </div>
+      </div>
+
+      <div class="featured-info">
+        <h3>The Hidden One</h3>
+        <p class="game-status">Currently in Development</p>
+        <p class="game-description">
+          Step into the shadows. *The Hidden One* is an atmospheric, immersive experience where every decision ripples through the void. Survive the unknown, uncover the truth, and face what lurks just beyond the edge of sight.
+        </p>
+        <div class="game-features">
+          <span>Atmospheric Thriller</span>
+          <span>Story-Rich</span>
+          <span>Multiplayer</span>
+        </div>
+        <a href="/games" class="btn-primary">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="community-section">
+    <div class="container community-content">
+      <h2>Join the <span class="text-accent">VoidCore</span> Network</h2>
+      <p>Get early access to development updates, participate in playtests, and connect directly with the developers behind *The Hidden One*.</p>
+      <div class="community-actions">
+        <a href="#" class="btn-primary">Join our Discord</a>
+        <a href="#" class="btn-secondary">Follow on Roblox</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* --- Hero Section --- */
+  .hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: -80px; /* Pulls hero up behind the transparent navbar */
+    padding-top: 80px;
+    overflow: hidden;
+  }
+
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Creates a deep, radial dark-blue to black gradient for that premium futuristic feel */
+    background: radial-gradient(circle at 50% 20%, rgba(59, 130, 246, 0.15) 0%, var(--color-void-black) 60%);
+    z-index: -1;
+  }
+
+  .hero-content {
+    max-width: 800px;
+    animation: fadeUp 1s ease-out;
+  }
+
+  .badge {
+    display: inline-block;
+    background-color: rgba(59, 130, 246, 0.1);
+    color: var(--color-core-azure);
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+  }
+
+  .hero-title {
+    font-size: 4.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-steel-gray);
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  .btn-large {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+
+  .btn-primary {
+    background-color: var(--color-core-azure);
+    color: var(--color-ghost-white);
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    transition: var(--transition-fast);
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background-color: #2563eb;
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--color-ghost-white);
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    border: 1px solid var(--color-steel-gray);
+    transition: var(--transition-fast);
+    display: inline-block;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--color-ghost-white);
+    background-color: rgba(248, 249, 250, 0.05);
+  }
+
+  /* --- Featured Game Section --- */
+  .featured-section {
+    padding: 6rem 2rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .section-header h2 {
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  .header-line {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, rgba(148, 161, 178, 0.2) 0%, transparent 100%);
+  }
+
+  .featured-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    background-color: var(--color-obsidian);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    border: 1px solid rgba(148, 161, 178, 0.1);
+  }
+
+  .media-placeholder {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-color: #1a1a20;
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-steel-gray);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    border: 1px dashed rgba(148, 161, 178, 0.2);
+  }
+
+  .media-placeholder:hover {
+    border-color: var(--color-core-azure);
+    color: var(--color-ghost-white);
+  }
+
+  .play-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--color-core-azure);
+  }
+
+  .game-status {
+    color: var(--color-core-azure);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+  }
+
+  .game-description {
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+  }
+
+  .game-features {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .game-features span {
+    background-color: rgba(248, 249, 250, 0.05);
+    padding: 0.4rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    color: var(--color-steel-gray);
+  }
+
+  /* --- Community CTA Section --- */
+  .community-section {
+    padding: 6rem 0;
+    text-align: center;
+    background: linear-gradient(0deg, var(--color-obsidian) 0%, var(--color-void-black) 100%);
+    border-top: 1px solid rgba(148, 161, 178, 0.1);
+  }
+
+  .community-content p {
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+  }
+
+  .community-actions {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  /* --- Keyframe Animations --- */
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* --- Mobile Responsive --- */
+  @media (max-width: 900px) {
+    .featured-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 3rem;
+    }
+    .hero-actions, .community-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+    .btn-large {
+      width: 100%;
+    }
+  }
+</style>

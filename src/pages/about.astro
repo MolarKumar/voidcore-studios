@@ -1,0 +1,143 @@
+---
+/* src/pages/about.astro */
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About Us">
+  
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container text-center">
+      <h1>Into the <span class="text-accent">Void</span></h1>
+      <p class="header-subtitle">We are an independent studio dedicated to crafting experiences that linger long after the screen goes dark.</p>
+    </div>
+  </section>
+
+  <!-- The Story Section -->
+  <section class="story-section container">
+    <div class="story-grid">
+      <div class="story-text">
+        <h2>Our Origin</h2>
+        <p>VoidCore Studios began as a personal creative journey, built from the idea of giving my private game projects a proper identity. What started as small experiments and late-night building sessions in Roblox Studio slowly turned into a real vision: to create games that feel original, atmospheric, and worth remembering.</p>
+        <p>Instead of making generic experiences, I wanted to build worlds with personality, suspense, and emotion. Every project is treated like something handcrafted, not just coded. From The Hidden One to the future games still in development, VoidCore Studios represents growth, learning, and the drive to turn ideas into immersive experiences.</p>
+      </div>
+      <div class="story-image">
+        <div class="image-placeholder">
+          <span>Studio Image Placeholder</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Philosophy Section -->
+  <section class="philosophy-section">
+    <div class="container">
+      <h2 class="text-center">Our Philosophy</h2>
+      <div class="philosophy-grid">
+        
+        <div class="philosophy-card">
+          <div class="icon">🌌</div>
+          <h3>Atmosphere First</h3>
+          <p>Lighting, sound design, and environmental storytelling are not afterthoughts. They are the foundation of everything we build.</p>
+        </div>
+
+        <div class="philosophy-card">
+          <div class="icon">🎮</div>
+          <h3>Player Respect</h3>
+          <p>No bloated mechanics. No predatory monetization. We build complete, meaningful experiences that respect your time and intelligence.</p>
+        </div>
+
+        <div class="philosophy-card">
+          <div class="icon">⚒️</div>
+          <h3>Handcrafted Worlds</h3>
+          <p>Every corner of a VoidCore game is meticulously designed. We believe in quality, depth, and passion over rushed development cycles.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .page-header {
+    padding: 6rem 0 4rem 0;
+    border-bottom: 1px solid rgba(148, 161, 178, 0.1);
+  }
+
+  .header-subtitle {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* --- Story Section --- */
+  .story-section {
+    padding: 6rem 2rem;
+  }
+
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .story-text h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .story-text p {
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .story-image .image-placeholder {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background-color: var(--color-obsidian);
+    border: 1px dashed rgba(148, 161, 178, 0.3);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-steel-gray);
+  }
+
+  /* --- Philosophy Section --- */
+  .philosophy-section {
+    padding: 6rem 0;
+    background-color: var(--color-obsidian);
+    border-top: 1px solid rgba(148, 161, 178, 0.1);
+  }
+
+  .philosophy-section h2 {
+    margin-bottom: 4rem;
+  }
+
+  .philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .philosophy-card {
+    background-color: var(--color-void-black);
+    padding: 3rem 2rem;
+    border-radius: var(--radius-md);
+    text-align: center;
+    border: 1px solid rgba(148, 161, 178, 0.05);
+  }
+
+  .philosophy-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .story-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

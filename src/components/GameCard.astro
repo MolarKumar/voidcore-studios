@@ -1,0 +1,118 @@
+---
+/* src/components/GameCard.astro */
+const { title, status, description, features = [] } = Astro.props;
+---
+
+<article class="game-card">
+  <div class="card-media">
+    <div class="media-placeholder">
+      <span class="image-icon">🖼️</span>
+    </div>
+  </div>
+
+  <div class="card-content">
+    <span class="game-status">{status}</span>
+    <h3>{title}</h3>
+    <p>{description}</p>
+    
+    <div class="game-features">
+      {features.map((feature) => (
+        <span class="feature-tag">{feature}</span>
+      ))}
+    </div>
+
+    <a href="#gallery" class="btn-secondary">View Gallery</a>
+  </div>
+</article>
+
+<style>
+  .game-card {
+    background-color: var(--color-obsidian);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(148, 161, 178, 0.1);
+    overflow: hidden;
+    transition: var(--transition-fast);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .game-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(59, 130, 246, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .card-media {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-color: #1a1a20;
+    border-bottom: 1px solid rgba(148, 161, 178, 0.1);
+  }
+
+  .media-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    opacity: 0.5;
+  }
+
+  .card-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .game-status {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-core-azure);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-content h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .card-content p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+
+  .game-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .feature-tag {
+    background-color: rgba(248, 249, 250, 0.05);
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    color: var(--color-steel-gray);
+  }
+
+  .btn-secondary {
+    text-align: center;
+    background-color: transparent;
+    color: var(--color-ghost-white);
+    padding: 0.6rem 1rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    border: 1px solid var(--color-steel-gray);
+    transition: var(--transition-fast);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--color-ghost-white);
+  }
+</style>

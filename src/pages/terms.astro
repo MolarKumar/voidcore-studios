@@ -1,0 +1,66 @@
+---
+/* src/pages/terms.astro */
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Terms of Service">
+  <section class="legal-container">
+    <div class="legal-header">
+      <h1>Terms of Service</h1>
+      <p class="last-updated">Last Updated: July 2026</p>
+    </div>
+
+    <div class="legal-content">
+      <p>Welcome to VoidCore Studios. By accessing our website, interacting with our development blogs, or participating in alpha/beta software events, you agree to comply with and be bound by the following Terms of Service.</p>
+
+      <h2>1. Intellectual Property Rights</h2>
+      <p>All content, branding, code, logic models, logos, art assets, and promotional media related to our titles, including <em>The Hidden One</em>, are the exclusive intellectual property of VoidCore Studios. You may not distribute, alter, reuse, or monetize our assets without explicit written consent.</p>
+
+      <h2>2. Community Code of Conduct</h2>
+      <p>When connecting with our staff or tracking updates through external resources (such as the DeadScope MC Discord network or our Roblox profile hubs), you agree to maintain a respectful, constructive environment. Toxic behavior, harassment, and intentional exploit distribution are strictly prohibited.</p>
+
+      <h2>3. Content Creation Policy</h2>
+      <p>We actively support content creators! You are granted a revocable, non-exclusive license to stream, record, review, and monetize video material showcasing public builds of VoidCore Studios titles, provided you reference our official distribution links where appropriate.</p>
+
+      <h2>4. Limitation of Liability</h2>
+      <p>Our website files and early development previews are offered on an "as-is" basis. VoidCore Studios shall not be held liable for any data disruption, minor hardware optimizations, or unintended errors experienced while navigating early stage project architectures.</p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+  }
+
+  .legal-header {
+    border-bottom: 1px solid rgba(148, 161, 178, 0.1);
+    padding-bottom: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .last-updated {
+    color: var(--color-core-azure);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
+  }
+
+  .legal-content h2 {
+    font-size: 1.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    border-left: 3px solid var(--color-core-azure);
+    padding-left: 1rem;
+  }
+
+  .legal-content p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+</style>

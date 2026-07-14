@@ -1,0 +1,123 @@
+---
+/* src/components/Navbar.astro */
+---
+
+<header class="site-header">
+  <div class="container nav-container">
+    <a href="/" class="logo">
+      <span class="text-accent">Void</span>Core
+    </a>
+
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/games">Games</a>
+      <a href="/about">About</a>
+      <a href="/team">Team</a>
+      <a href="/news">News</a>
+      <a href="/careers">Careers</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="https://discord.gg/5ufDecMPb" class="btn-primary">Join Discord</a>
+      <button class="mobile-toggle" aria-label="Toggle Menu">
+        ☰
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(10, 10, 12, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(148, 161, 178, 0.1);
+    z-index: 1000;
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+  }
+
+  .logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-steel-gray);
+    transition: var(--transition-fast);
+  }
+
+  .nav-links a:hover {
+    color: var(--color-ghost-white);
+  }
+
+  .btn-primary {
+    background-color: var(--color-core-azure);
+    color: var(--color-ghost-white);
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition-fast);
+  }
+
+  .btn-primary:hover {
+    background-color: #2563eb; /* Slightly darker azure */
+  }
+
+  .mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-ghost-white);
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none; /* We will expand this in the JS phase */
+    }
+    .mobile-toggle {
+      display: block;
+    }
+    .nav-actions .btn-primary {
+      display: none; /* Hide Discord button on small screens to save space */
+    }
+  }
+</style>
+
+<script>
+  // Simple mobile menu toggle logic
+  const toggle = document.querySelector('.mobile-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  toggle.addEventListener('click', () => {
+    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    navLinks.style.flexDirection = 'column';
+    navLinks.style.position = 'absolute';
+    navLinks.style.top = '80px';
+    navLinks.style.left = '0';
+    navLinks.style.width = '100%';
+    navLinks.style.backgroundColor = 'var(--color-obsidian)';
+    navLinks.style.padding = '2rem';
+    navLinks.style.borderBottom = '1px solid rgba(148, 161, 178, 0.1)';
+  });
+</script>

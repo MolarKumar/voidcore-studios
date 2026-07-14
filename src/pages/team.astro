@@ -1,0 +1,123 @@
+---
+/* src/pages/team.astro */
+import Layout from '../layouts/Layout.astro';
+import TeamCard from '../components/TeamCard.astro';
+---
+
+<Layout title="Our Team">
+  
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container text-center">
+      <h1>The <span class="text-accent">Architects</span></h1>
+      <p class="header-subtitle">Meet the minds behind the monitors. We are a collective of creators, coders, and storytellers.</p>
+    </div>
+  </section>
+
+  <!-- Team Roster Section -->
+  <section class="roster-section container">
+    <div class="team-grid">
+      
+      <!-- Team Member 1 (Replace with your actual details) -->
+      <TeamCard 
+        name="Molar/Kabir" 
+        role="Lead Developer / Founder" 
+        bio="Driving the vision and technical architecture behind VoidCore Studios. Passionate about immersive systems and dark aesthetics."
+      />
+
+      <!-- Team Member 2 -->
+      <TeamCard 
+        name="Zynox" 
+        role="Lead Animator" 
+        bio="Bringing characters and worlds to life through fluid animations and cinematic motion. Dedicated to creating immersive, polished, and memorable gameplay experiences."
+      />
+
+      <!-- Team Member 3 -->
+      <TeamCard 
+        name="Required" 
+        role="Lead Artist" 
+        bio="Crafting the visual identity of The Hidden One. Specializes in low-light environments, 3D modeling, and conceptual art."
+      />
+
+            <!-- Team Member 4 -->
+      <TeamCard 
+        name="Required" 
+        role="Audio Director" 
+        bio="Engineering the atmospheric soundscapes and terrifying audio cues that bring our worlds to life"
+      />
+
+      <!-- Team Member 5 -->
+      <TeamCard 
+        name="Required" 
+        role="Lead Level Designer" 
+        bio="Designing immersive worlds that blend atmosphere, exploration, and gameplay. Focused on creating memorable environments with clean layouts, meaningful details, and engaging player experiences.
+"
+      />
+
+            <!-- Team Member 6 -->
+      <TeamCard 
+        name="Required" 
+        role="Lead Programmer" 
+        bio="Building the core systems that power VoidCore Studios. Focused on clean code, reliable mechanics, and scalable gameplay architecture."
+      />
+
+    </div>
+  </section>
+
+  <!-- Join the Team CTA -->
+  <section class="join-cta">
+    <div class="container text-center">
+      <h2>Want to build with us?</h2>
+      <p>We are always looking for passionate indie developers to join the void.</p>
+      <a href="/careers" class="btn-primary mt-4">View Open Positions</a>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .page-header {
+    padding: 6rem 0 4rem 0;
+    border-bottom: 1px solid rgba(148, 161, 178, 0.1);
+  }
+
+  .header-subtitle {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .roster-section {
+    padding: 6rem 2rem;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+  }
+
+  .join-cta {
+    padding: 5rem 0;
+    background: linear-gradient(0deg, var(--color-obsidian) 0%, var(--color-void-black) 100%);
+    border-top: 1px solid rgba(148, 161, 178, 0.1);
+  }
+
+  .mt-4 {
+    margin-top: 1.5rem;
+    display: inline-block;
+  }
+
+  .btn-primary {
+    background-color: var(--color-core-azure);
+    color: var(--color-ghost-white);
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    transition: var(--transition-fast);
+  }
+
+  .btn-primary:hover {
+    background-color: #2563eb;
+  }
+</style>

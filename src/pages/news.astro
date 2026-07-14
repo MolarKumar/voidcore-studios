@@ -1,0 +1,66 @@
+---
+/* src/pages/news.astro */
+import Layout from '../layouts/Layout.astro';
+import NewsCard from '../components/NewsCard.astro';
+---
+
+<Layout title="Transmissions & News">
+  
+  <section class="page-header">
+    <div class="container text-center">
+      <h1><span class="text-accent">Core</span> Transmissions</h1>
+      <p class="header-subtitle">Development updates, patch notes, and studio announcements.</p>
+    </div>
+  </section>
+
+  <section class="news-section container">
+    <div class="news-grid">
+      
+      <NewsCard 
+        title="The Hidden One: Alpha Milestone Reached" 
+        date="July 2026" 
+        category="Devlog" 
+        excerpt="We've officially hit our internal Alpha milestone. Lighting systems have been overhauled, and core gameplay loops are fully playable."
+      />
+
+      <NewsCard 
+        title="Welcome to the new VoidCore Website" 
+        date="July 2026" 
+        category="Studio" 
+        excerpt="We've launched our new digital home. Explore our universe, meet the team, and get ready for upcoming playtests."
+      />
+
+      <NewsCard 
+        title="Behind the Audio: Designing Terror" 
+        date="June 2026" 
+        category="Behind the Scenes" 
+        excerpt="A deep dive into how our audio team uses spatial sound and dynamic mixing to create an atmosphere you can't escape."
+      />
+
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .page-header {
+    padding: 6rem 0 4rem 0;
+    border-bottom: 1px solid rgba(148, 161, 178, 0.1);
+  }
+
+  .header-subtitle {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .news-section {
+    padding: 6rem 2rem;
+  }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+  }
+</style>
