@@ -1,307 +1,132 @@
 ---
-/* src/pages/contact.astro */
 import Layout from '../layouts/Layout.astro';
-import Accordion from '../components/Accordion.astro';
+// All backend, form processing, and database imports have been permanently removed.
 ---
 
-<Layout title="Contact Us">
-  
-  <section class="page-header">
-    <div class="container text-center">
-      <h1>Establish a <span class="text-accent">Connection</span></h1>
-      <p class="header-subtitle">Have a question about The Hidden One, want to join the team, or just want to say hi? Transmit your message to the void.</p>
-    </div>
-  </section>
+<Layout title="Contact Us | VoidCore Studios">
+  <main class="contact-container fade-in-load">
+    <div class="contact-wrapper">
+      <header class="contact-header">
+        <span class="studio-logo">Get In Touch</span>
+        <h1>Contact VoidCore Studios</h1>
+        <p>Reach out to us directly through any of our official channels below.</p>
+      </header>
 
-<!-- Contact Grid -->
-  <section class="contact-section container">
-    <div class="contact-grid">
-      
-      <!-- Left Column: Info & Newsletter -->
-      <div class="contact-info">
-        <div class="info-block">
-          <h2>Direct Comm Links</h2>
-          <p>Prefer direct communication? Reach out to us through our community channels or business email.</p>
-          <ul class="contact-links">
-            <li><strong>Email:</strong> support.voidcore@gmail.com</li>
-            <li><strong>Discord:</strong> <a href="https://discord.gg/5ufDecMPb" class="text-accent">Join VoidCore Studios</a></li>
-            <li><strong>Roblox:</strong> <a href="https://www.roblox.com/users/6033659348/profile" class="text-accent">Follow OpCrazyGamer</a></li>
-          </ul>
-        </div>
-      </div>
+      <div class="contact-grid">
+        <a href="mailto:hello@voidcorestudios.com" class="contact-card">
+          <div class="card-icon">✉️</div>
+          <h3>Email</h3>
+          <p>hello@voidcorestudios.com</p>
+        </a>
 
-      <!-- Right Column: Contact Form -->
-      <div class="contact-form-container">
-        <h2>Send a Message</h2>
-        <form id="contact-form" class="contact-form">
-          <div class="form-group">
-            <label for="name">Alias / Name</label>
-            <input type="text" id="name" name="name" required placeholder="How should we address you?" />
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" required placeholder="Where should we reply?" />
-          </div>
-          <div class="form-group">
-            <label for="subject">Subject</label>
-            <select id="subject" name="type" required>
-              <option value="" disabled selected>Select an inquiry type...</option>
-              <option value="general">General Inquiry</option>
-              <option value="support">Game Support / Bug Report</option>
-              <option value="business">Business / Press</option>
-              <option value="recruitment">Recruitment / Jobs</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="message">Transmission</label>
-            <textarea id="message" name="message" rows="5" required placeholder="Enter your message here..."></textarea>
-          </div>
-          <button type="submit" class="btn-primary form-submit">Transmit Message</button>
-        </form>
-      </div>
+        <a href="https://discord.gg/your-invite-code" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <div class="card-icon">💬</div>
+          <h3>Discord</h3>
+          <p>Join our official community</p>
+        </a>
 
-    </div>
-  </section>
+        <a href="https://youtube.com/@VoidCoreStudios" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <div class="card-icon">📺</div>
+          <h3>YouTube</h3>
+          <p>Watch our devlogs & trailers</p>
+        </a>
 
-  <!-- FAQ Section -->
-  <section class="faq-section">
-    <div class="container">
-      <div class="section-header text-center">
-        <h2>Frequently Asked <span class="text-accent">Questions</span></h2>
-        <p>Common queries from the VoidCore community.</p>
-      </div>
+        <a href="https://roblox.com/groups/your-group-id" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <div class="card-icon">🎮</div>
+          <h3>Roblox Group</h3>
+          <p>Play our latest experiences</p>
+        </a>
 
-      <div class="faq-container">
-        <Accordion 
-          question="When is The Hidden One releasing?" 
-          answer="We are currently in active development. We do not believe in rushing our games, so we will announce a release date once the core experience meets our strict quality standards." 
-        />
-        <Accordion 
-          question="What platforms will The Hidden One be available on?" 
-          answer="Initially, the game will launch on PC/Mobile Roblox. Depending on community reception, we plan to explore console ports in the future." 
-        />
-        <Accordion 
-          question="Are you currently hiring?" 
-          answer="Yes! Check out our Careers page. We are always looking for passionate indie developers, 3D artists, and audio engineers who align with our dark futuristic vision." 
-        />
-        <Accordion 
-          question="Can I monetize videos of your games on YouTube?" 
-          answer="Absolutely. We fully support content creators. You are free to record, stream, and monetize gameplay of any VoidCore Studios title." 
-        />
+        <a href="https://x.com/VoidCoreStudios" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <div class="card-icon">🐦</div>
+          <h3>X (Twitter)</h3>
+          <p>Follow for quick updates</p>
+        </a>
       </div>
     </div>
-  </section>
-
+  </main>
 </Layout>
 
 <style>
-  .page-header {
-    padding: 6rem 0 4rem 0;
-    border-bottom: 1px solid rgba(148, 161, 178, 0.1);
+  /* --- Global Contact Layout --- */
+  .contact-container {
+    min-height: 100vh;
+    padding: 6rem 2rem;
+    background-color: var(--color-void-black, #0f0f12);
+    color: var(--color-ghost-white, #f8fafc);
   }
 
-  .header-subtitle {
-    font-size: 1.2rem;
-    max-width: 600px;
+  .contact-wrapper {
+    max-width: 1000px;
     margin: 0 auto;
   }
 
-  /* --- Contact Grid --- */
-  .contact-section {
-    padding: 6rem 2rem;
+  /* --- Header Styling --- */
+  .contact-header {
+    text-align: center;
+    margin-bottom: 4rem;
   }
 
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 4rem;
-  }
-
-  .info-block {
-    margin-bottom: 3rem;
-  }
-
-  .info-block h2, .contact-form-container h2 {
-    margin-bottom: 1.5rem;
-  }
-
-  .contact-links {
-    list-style: none;
-    margin-top: 1.5rem;
-  }
-
-  .contact-links li {
-    margin-bottom: 1rem;
-    color: var(--color-steel-gray);
-  }
-
-  .contact-links strong {
-    color: var(--color-ghost-white);
-  }
-
-  /* --- Newsletter Block --- */
-  .newsletter-block {
-    background-color: var(--color-obsidian);
-    padding: 2rem;
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(148, 161, 178, 0.1);
-  }
-
-  .newsletter-block h3 {
-    margin-bottom: 0.5rem;
-  }
-
-  .newsletter-block p {
+  .studio-logo {
+    color: #ef4444;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     font-size: 0.9rem;
-    margin-bottom: 1.5rem;
   }
 
-  .newsletter-form {
-    display: flex;
-    gap: 0.5rem;
+  .contact-header h1 {
+    font-size: 2.5rem;
+    margin: 1rem 0;
   }
 
-  .newsletter-form input {
-    flex-grow: 1;
-  }
-
-  /* --- Forms Styling --- */
-  .contact-form-container {
-    background-color: var(--color-obsidian);
-    padding: 3rem;
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(148, 161, 178, 0.1);
-  }
-
-  .form-group {
-    margin-bottom: 1.5rem;
-  }
-
-  .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: var(--color-ghost-white);
-  }
-
-  input, select, textarea {
-    width: 100%;
-    padding: 1rem;
-    background-color: var(--color-void-black);
-    border: 1px solid rgba(148, 161, 178, 0.2);
-    border-radius: var(--radius-sm);
-    color: var(--color-ghost-white);
-    font-family: var(--font-body);
-    font-size: 1rem;
-    transition: var(--transition-fast);
-  }
-
-  input:focus, select:focus, textarea:focus {
-    outline: none;
-    border-color: var(--color-core-azure);
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
-  }
-
-  textarea {
-    resize: vertical;
-  }
-
-  .form-submit {
-    width: 100%;
-    padding: 1rem;
+  .contact-header p {
+    color: var(--color-steel-gray, #94a1b2);
     font-size: 1.1rem;
   }
 
-  .btn-primary {
-    background-color: var(--color-core-azure);
-    color: var(--color-ghost-white);
-    border: none;
-    border-radius: var(--radius-sm);
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition-fast);
+  /* --- Grid & Card Styling --- */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
   }
 
-  .btn-primary:hover {
-    background-color: #2563eb;
+  .contact-card {
+    background-color: var(--color-obsidian, #1e1e24);
+    border: 1px solid rgba(148, 161, 178, 0.1);
+    border-radius: 8px; 
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
-  /* --- FAQ Section --- */
-  .faq-section {
-    padding: 6rem 0;
-    background-color: var(--color-void-black);
-    border-top: 1px solid rgba(148, 161, 178, 0.1);
+  .contact-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(79, 195, 247, 0.4); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   }
 
-  .section-header {
-    margin-bottom: 3rem;
+  .card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
   }
 
-  .faq-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 2rem;
+  .contact-card h3 {
+    margin: 0 0 0.5rem 0;
+    color: #4fc3f7; 
+    font-size: 1.3rem;
   }
 
-  /* Mobile Responsive */
-  @media (max-width: 900px) {
-    .contact-grid {
-      grid-template-columns: 1fr;
-      gap: 3rem;
-    }
-    .newsletter-form {
-      flex-direction: column;
-    }
+  .contact-card p {
+    margin: 0;
+    color: var(--color-steel-gray, #94a1b2);
+    font-size: 0.95rem;
   }
 </style>
-
-<script>
-  const contactForm = document.getElementById('contact-form');
-  
-  if (contactForm) {
-    const submitBtn = contactForm.querySelector('.form-submit');
-
-    contactForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      
-      const originalText = submitBtn.textContent;
-      submitBtn.textContent = 'Transmitting...';
-      submitBtn.disabled = true;
-
-      // Native FormData parses input name attributes automatically 
-      const formData = new FormData(contactForm);
-
-      try {
-        const response = await fetch('/api/contact', {
-          method: 'POST',
-          body: formData // Sends the multi-part data payload directly matching the backend
-        });
-
-        const result = await response.json();
-
-        if (response.ok && result.success) {
-          alert('Transmission successful! Your message has been saved.');
-          contactForm.reset();
-        } else {
-          alert(`Transmission failed: ${result.error || 'The server rejected the request.'}`);
-        }
-      } catch (err) {
-        console.error('Submission error:', err);
-        alert('Network error. Cannot reach backend API.');
-      } finally {
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-      }
-    });
-  }
-
-  // Safe wrapper for the newsletter form to prevent script crashes if it's absent
-  const newsletterForm = document.getElementById('newsletter-form');
-  if (newsletterForm) {
-    newsletterForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      // Handle newsletter registration if needed
-    });
-  }
-</script>
