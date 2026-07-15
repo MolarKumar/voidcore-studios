@@ -6,11 +6,14 @@ export const prerender = false; // CRITICAL: Fetches fresh database rows on ever
 import Layout from '../layouts/Layout.astro';
 import { supabaseAdmin } from '../lib/supabase';
 
+// We declare this as a variable to use object shorthand and bypass Astro's colon parsing bug
+const ascending = false;
+
 // Fetch all reports and applications directly from the server side
 const response = await supabaseAdmin
   .from('submissions')
   .select('*')
-  .order('created_at', { ascending: false });
+  .order('created_at', { ascending });
 
 const submissions = response.data;
 const error = response.error;
