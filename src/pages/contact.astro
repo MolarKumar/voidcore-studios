@@ -278,26 +278,28 @@ import Accordion from '../components/Accordion.astro';
     submitBtn.textContent = 'Transmitting...';
     submitBtn.disabled = true;
 
-    const formData = {
-      name: document.getElementById('name').value,
-      email: document.getElementById('email').value,
-      subject: document.getElementById('subject').value,
-      message: document.getElementById('message').value
-    };
+// Example structural form handler block inside your script tags
+const handleFormSubmit = async (event) => {
+  event.preventDefault();
+  const formData = new FormData(event.target);
 
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
-
-      if (response.ok) {
-        alert('Transmission successful! Your message has been saved.');
-        contactForm.reset();
-      } else {
-        alert('Transmission failed. The server rejected the request.');
-      }
+  try {
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      body: formData,
+    });
+    
+    const result = await response.json();
+    if (response.ok && result.success) {
+      alert("Submission successfully processed!");
+      event.target.reset();
+    } else {
+      alert(`Submission failure: ${result.error}`);
+    }
+  } catch (err) {
+    console.error("Network connectivity issue:", err);
+  }
+};
     } catch (err) {
       alert('Network error. Cannot reach backend API.');
     } finally {
