@@ -30,21 +30,21 @@ import Accordion from '../components/Accordion.astro';
         </div>
       </div>
 
-      <!-- Right Column: Contact Form -->
+<!-- Right Column: Contact Form -->
       <div class="contact-form-container">
         <h2>Send a Message</h2>
         <form id="contact-form" class="contact-form">
           <div class="form-group">
             <label for="name">Alias / Name</label>
-            <input type="text" id="name" required placeholder="How should we address you?" />
+            <input type="text" id="name" name="name" required placeholder="How should we address you?" />
           </div>
           <div class="form-group">
             <label for="email">Email Address</label>
-            <input type="email" id="email" required placeholder="Where should we reply?" />
+            <input type="email" id="email" name="email" required placeholder="Where should we reply?" />
           </div>
           <div class="form-group">
             <label for="subject">Subject</label>
-            <select id="subject" required>
+            <select id="subject" name="type" required>
               <option value="" disabled selected>Select an inquiry type...</option>
               <option value="general">General Inquiry</option>
               <option value="support">Game Support / Bug Report</option>
@@ -54,13 +54,12 @@ import Accordion from '../components/Accordion.astro';
           </div>
           <div class="form-group">
             <label for="message">Transmission</label>
-            <textarea id="message" rows="5" required placeholder="Enter your message here..."></textarea>
+            <textarea id="message" name="message" rows="5" required placeholder="Enter your message here..."></textarea>
           </div>
           <button type="submit" class="btn-primary form-submit">Transmit Message</button>
         </form>
       </div>
 
-    </div>
   </section>
 
   <!-- FAQ Section -->
@@ -257,55 +256,51 @@ import Accordion from '../components/Accordion.astro';
 </style>
 
 <script>
-  // Simple form logic to prevent page reload and simulate success for now
-  document.getElementById('contact-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Transmission successful! Your message has been sent to the void.');
-    e.target.reset(); // Clears the form
-  });
-
-  document.getElementById('newsletter-form').addEventListener('submit', (e) => {
-
-  });
-
   const contactForm = document.getElementById('contact-form');
-  const submitBtn = contactForm.querySelector('.form-submit');
+  
+  if (contactForm) {
+    const submitBtn = contactForm.querySelector('.form-submit');
 
-  contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Transmitting...';
-    submitBtn.disabled = true;
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Transmitting...';
+      submitBtn.disabled = true;
 
-// Example structural form handler block inside your script tags
-const handleFormSubmit = async (event) => {
-  event.preventDefault();
-  const formData = new FormData(event.target);
+      // Native FormData parses input name attributes automatically 
+      const formData = new FormData(contactForm);
 
-  try {
-    const response = await fetch('/api/contact', {
-      method: 'POST',
-      body: formData,
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          body: formData // Sends the multi-part data payload directly matching the backend
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          alert('Transmission successful! Your message has been saved.');
+          contactForm.reset();
+        } else {
+          alert(`Transmission failed: ${result.error || 'The server rejected the request.'}`);
+        }
+      } catch (err) {
+        console.error('Submission error:', err);
+        alert('Network error. Cannot reach backend API.');
+      } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }
     });
-    
-    const result = await response.json();
-    if (response.ok && result.success) {
-      alert("Submission successfully processed!");
-      event.target.reset();
-    } else {
-      alert(`Submission failure: ${result.error}`);
-    }
-  } catch (err) {
-    console.error("Network connectivity issue:", err);
   }
-};
-    } catch (err) {
-      alert('Network error. Cannot reach backend API.');
-    } finally {
-      submitBtn.textContent = originalText;
-      submitBtn.disabled = false;
-    }
-  });
 
+  // Safe wrapper for the newsletter form to prevent script crashes if it's absent
+  const newsletterForm = document.getElementById('newsletter-form');
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Handle newsletter registration if needed
+    });
+  }
 </script>
