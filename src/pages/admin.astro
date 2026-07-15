@@ -7,10 +7,13 @@ import Layout from '../layouts/Layout.astro';
 import { supabaseAdmin } from '../lib/supabase';
 
 // Fetch all reports and applications directly from the server side
-const { data: submissions, error } = await supabaseAdmin
+const response = await supabaseAdmin
   .from('submissions')
   .select('*')
   .order('created_at', { ascending: false });
+
+const submissions = response.data;
+const error = response.error;
 ---
 
 <Layout title="Admin Panel | VoidCore Studios">
